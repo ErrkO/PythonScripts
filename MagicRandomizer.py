@@ -1,4 +1,5 @@
 import random
+import mtgsdk
 
 colors = ["Black","Blue","Green","Red","White"]
 mechanics = ["Spells","Amass","Hexproof","Mill"
@@ -15,6 +16,9 @@ creature = ["Sphinx","Pirate","Dragon","Merfolk"
             ,"Demonic","Horror","Insect","Orc"
             ,"Assassin","Fungus","Artifact"
             ,"Goblin","Wall","Elf"]
+
+Standard2019 = 'xln,rix,dom,m19,grn,rna,war,m20'
+Standard2020 = 'grn,rna,war,m20,eld'
 
 def RandomColor():
     index = random.randint(0,len(colors)-1)
@@ -128,4 +132,27 @@ def Rules():
     print("2. Deck choices will be made without the others knowledge to prevent building against the other person\n")
 
 
-Main()
+#Main()
+
+#cards = mtgsdk.Card.where(page=5).where(pageSize=1000).all()
+
+#sets.append(mtgsdk.Set.find('xln'))
+#types = mtgsdk.Type.all()
+subtypes = mtgsdk.Subtype.all()
+supertypes = mtgsdk.Supertype.all()
+
+llen = random.randint(1,10)
+
+for i in range(0,llen):
+
+    rint = random.randint(1,len(cards))
+
+    print("Card #: " + str(i+1))
+    print("Name: " + cards[rint].name)
+    print("CMC: " + str(cards[rint].cmc))
+    print("Colors: ")
+    for color in cards[rint].colors:
+        print("\t" + color)
+    print("Type: " + cards[rint].type)
+    print("Text: " + cards[rint].text)
+    print("")
