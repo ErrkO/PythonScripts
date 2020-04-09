@@ -1,6 +1,7 @@
 import random
 import mtgsdk
 
+formats = [ "Standard", "Historic", "Commander", "Historic Commander", "Pauper" ]
 colors = ["Black","Blue","Green","Red","White"]
 mechanics = ["Spells","Amass","Hexproof","Mill"
             ,"Self-Mill","Deathtouch","Lifelink"
@@ -18,7 +19,11 @@ creature = ["Sphinx","Pirate","Dragon","Merfolk"
             ,"Goblin","Wall","Elf"]
 
 Standard2019 = 'xln,rix,dom,m19,grn,rna,war,m20'
-Standard2020 = 'grn,rna,war,m20,eld'
+Standard2020 = 'grn,rna,war,m20,eld,thb,iko'
+
+def RandomFormat():
+    index = random.randint(0,len(formats)-1)
+    return formats[index]
 
 def RandomColor():
     index = random.randint(0,len(colors)-1)
@@ -93,10 +98,53 @@ def GetColors():
 def Main():
 
     choice = ColorOrOther()
+    format = RandomFormat()
 
     Rules()
 
+    print("The format you will be playing is: " + format)
+
+    #################################
+    #    Start of Player 2 Block    #
+    #################################
+
     print("You will be playing deck type: " + choice)
+
+    print("Requirements: ")
+
+    if choice == "Color":
+        
+        choiceList = GetColors()
+
+        if type(choiceList) is list:
+
+            for color in choiceList:
+                print("    " + color)
+
+        else:
+
+            print("    " + choiceList)
+
+    elif choice == "Mechanic":
+
+        choiceList = RandomMechanic()
+
+        print("    " + choiceList)
+
+    elif choice == "Creature":
+
+        choiceList = RandomCreautre()
+
+        print("    " + choiceList)
+
+    #################################
+    #    Start of Player 2 Block    #
+    #################################
+    
+    choice = ColorOrOther()
+
+    print("Your Opponent will be playing deck type: " + choice)
+
     print("Requirements: ")
 
     if choice == "Color":
@@ -132,27 +180,34 @@ def Rules():
     print("2. Deck choices will be made without the others knowledge to prevent building against the other person\n")
 
 
-#Main()
+Main()
 
-#cards = mtgsdk.Card.where(page=5).where(pageSize=1000).all()
+sets = mtgsdk.Set.all()
+#cards = mtgsdk.Card.where(set='thb').all()
 
-#sets.append(mtgsdk.Set.find('xln'))
-#types = mtgsdk.Type.all()
-subtypes = mtgsdk.Subtype.all()
-supertypes = mtgsdk.Supertype.all()
+print(' ')
 
-llen = random.randint(1,10)
-
-for i in range(0,llen):
-
-    rint = random.randint(1,len(cards))
-
-    print("Card #: " + str(i+1))
-    print("Name: " + cards[rint].name)
-    print("CMC: " + str(cards[rint].cmc))
-    print("Colors: ")
-    for color in cards[rint].colors:
-        print("\t" + color)
-    print("Type: " + cards[rint].type)
-    print("Text: " + cards[rint].text)
-    print("")
+#cards = mtgsdk.Card.where(set=thb).all()
+#
+##sets.append(mtgsdk.Set.find('xln'))
+##types = mtgsdk.Type.all()
+#subtypes = mtgsdk.Subtype.all()
+#supertypes = mtgsdk.Supertype.all()
+#
+#llen = random.randint(1,10)
+#
+#for i in range(0,llen):
+#
+#    rint = random.randint(1,len(cards))
+#
+#    print("Card #: " + str(i+1))
+#    print("Name: " + cards[rint].name)
+#    print("CMC: " + str(cards[rint].cmc))
+#    print("ManaCost" + cards[rint].mana_cost)
+#    color_str = ""
+#    for color in cards[rint].colors:
+#        color_str += color + " "
+#    print("Colors: " + color_str)
+#    print("Type: " + cards[rint].type)
+#    print("Text: " + cards[rint].text)
+#    print("")

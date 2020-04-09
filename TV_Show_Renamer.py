@@ -1,13 +1,14 @@
-import shutil, os, re
+import shutil, os, re, datetime
 
 def Match(regex,string):
     if re.search(regex,string) is not None:
         return True
     return False
 
-def RenameFile(file,rename):
-    shutil.move(file,rename)
-    print("Renamed " + file + " to " + rename)
+def RenameFile(file,rename,log):
+    #shutil.move(file,rename)
+    #print("Renamed " + file + " to " + rename)
+    log.write("Renamed " + file + " to " + rename)
 
 def BuildNewFileName(showname,snum,episode):
     if not Match('.*[A-Za-z]* - s\d*e\d*',episode):
@@ -59,6 +60,12 @@ def BuildNewFileName(showname,snum,episode):
 for folder in os.listdir(".\\"):
 
         print("")
+
+        now = datetime.datetime.now()
+
+        date_str = now.year + '-' + now.month + '-' + now.day
+
+        log = open("log-" + date_str + ".txt",'r+b')
         
         if ".py" in folder:
             folder
@@ -79,16 +86,11 @@ for folder in os.listdir(".\\"):
                 for episode in os.listdir(seasonpath):
 
                     eppath = seasonpath + "\\" + episode
-                    #print(os.path.abspath(seasonpath))
-                    #print(os.path.abspath(eppath))
-                    #print(os.path.abspath(episode))
 
                     newfilename = BuildNewFileName(folder,stag,episode)
 
                     if newfilename not in "":
                         nfnpath = seasonpath + "\\" + newfilename
-                        #print(nfnpath)
-                        RenameFile(eppath,nfnpath)
-                    
-                    
-                    
+                        RenameFile(eppath,nfnpath,log)
+
+exit = input("Press any key to continue...")
