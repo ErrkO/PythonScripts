@@ -2,7 +2,7 @@ import mysql.connector
 from mysql.connector import Error
 import json
 import os
-import Objects
+import Objects as Obj
 
 def PrintConInfo(connection):
     if connection.is_connected():
@@ -30,8 +30,77 @@ def LoadAllFromTable(cursor,table):
 
     return ExecuteQuery(cursor,query)
 
-def LoadCards(cursor):
-    pass
+def LoadCards(cursor,tableLst):
+    return LoadAllFromTable(cursor,tableLst[0])
+
+def LoadSets(cursor,tableLst):
+    return LoadAllFromTable(cursor,tableLst[4])
+
+def LoadColors(cursor,tableLst):
+    return LoadAllFromTable(cursor,tableLst[3])
+
+def LoadTypes(cursor,tableLst):
+    return LoadAllFromTable(cursor,tableLst[6])
+
+def LoadSubtypes(cursor,tableLst):
+    return LoadAllFromTable(cursor,tableLst[5])
+
+def LoadCardTypes(cursor,cardID,tableLst):
+    return LoadAllFromTable(cursor,tableLst[1])
+
+def LoadCardSubtypes(cursor,cardID,tableLst):
+    return LoadAllFromTable(cursor,tableLst[2])
+
+def SaveCards(cursor,cards):
+    for card in cards:
+        SaveCard(cursor,card)
+
+def SaveCard(cursor,card):
+    query = ("""INSERT INTO Cards(
+              CardID
+	          ,CMC
+	          ,ManaCost
+	          ,NAME
+	          ,Power
+	          ,Rarity
+	          ,SetID
+	          ,Text
+	          ,Toughness
+            )
+            VALUES
+            (%s,%s,%s,%s,%s,%s,%s,%s,%s)""")
+
+    record = cursor.execute(query,card.Parameterize())
+
+    return record
+
+def SaveSets(cursor,sets):
+    for set in sets:
+        SaveSet(cursor,set)
+
+def SaveSet(cursor,set):
+    query = ("""INSERT INTO Sets(
+                     SetID
+                    ,SetCode
+                    ,SetName)
+                Values
+                    (%s,%s,%s)""")
+    
+    record = cursor.execute(query,set.Parameterize())
+
+    return record
+
+def SaveTypes(cursor,tableLst):
+    return LoadAllFromTable(cursor,tableLst[6])
+
+def SaveSubtypes(cursor,tableLst):
+    return LoadAllFromTable(cursor,tableLst[5])
+
+def SaveCardTypes(cursor,cardID,tableLst):
+    return LoadAllFromTable(cursor,tableLst[2])
+
+def SaveCardSubtypes(cursor,cardID,tableLst):
+    return LoadAllFromTable(cursor,tableLst[1])
 
 def PopulateTableList(cursor):
     query = """SELECT t.Table_Name
@@ -57,6 +126,7 @@ def PopulateTableList(cursor):
     return tableLst
 
 def Main():
+
     try:
         
         with open('DatabaseConectionValues.json','r') as f:
@@ -73,7 +143,7 @@ def Main():
         # This is where the loop actually starts
         if cursor != None:
             cursor = connection.cursor()
-
+            
     except Error as e:
         print("Error", e)
     finally:
@@ -81,3 +151,6 @@ def Main():
             cursor.close()
             connection.close()
             print("MySQL connection is closed")
+
+
+Main()

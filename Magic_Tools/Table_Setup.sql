@@ -61,3 +61,12 @@ CREATE TABLE Card_Subtypes (
 	,FOREIGN KEY (CardID) REFERENCES Cards(CardID)
 	,FOREIGN KEY (SubtypeID) REFERENCES Subtypes(SubtypeID)
 );
+
+INSERT INTO Colors(
+	Color
+) VALUES
+	 ('Black')
+	,('Blue')
+	,('Green')
+	,('Red')
+	,('White');
