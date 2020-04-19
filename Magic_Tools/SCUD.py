@@ -3,6 +3,16 @@ from mysql.connector import Error
 import json
 import os
 import Objects as Obj
+import MagicApiHandler as Handler
+
+def BuildBaseDB(cursor):
+    sets = Handler.GetAllSets()
+    types = Handler.GetAllTypes()
+    subtypes = Handler.GetAllSubtypes()
+    supertypes = Handler.GetAllSupertypes()
+
+    SaveSets(cursor,sets)
+    
 
 def PrintConInfo(connection):
     if connection.is_connected():
@@ -75,18 +85,17 @@ def SaveCard(cursor,card):
     return record
 
 def SaveSets(cursor,sets):
-    for set in sets:
-        SaveSet(cursor,set)
+    for sett in sets:
+        SaveSet(cursor,sett)
 
-def SaveSet(cursor,set):
+def SaveSet(cursor,sett):
     query = ("""INSERT INTO Sets(
-                     SetID
-                    ,SetCode
+                     SetCode
                     ,SetName)
                 Values
-                    (%s,%s,%s)""")
+                    (%s,%s)""")
     
-    record = cursor.execute(query,set.Parameterize())
+    record = cursor.execute(query,sett.Parameterize())
 
     return record
 
@@ -129,7 +138,7 @@ def Main():
 
     try:
         
-        with open('DatabaseConectionValues.json','r') as f:
+        with open('F:\\Users\\erico\\Code_Projects\\PythonScripts\\Magic_Tools\\DatabaseConectionValues.json','r') as f:
             dbVars = json.load(f)
 
         connection = mysql.connector.connect(host=dbVars["host"],
@@ -139,10 +148,14 @@ def Main():
 
         cursor = PrintConInfo(connection)
 
-
         # This is where the loop actually starts
         if cursor != None:
             cursor = connection.cursor()
+
+            sql_statement = """SELECT * FROM Formats"""
+            cursor.execute(sql_statement)
+            formats = cursor.fetchone()
+            print('')
             
     except Error as e:
         print("Error", e)
@@ -151,6 +164,5 @@ def Main():
             cursor.close()
             connection.close()
             print("MySQL connection is closed")
-
 
 Main()
