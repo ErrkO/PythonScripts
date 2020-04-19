@@ -1,5 +1,4 @@
 import random
-import mtgsdk
 
 formats = [ "Standard", "Historic", "Commander", "Historic Commander", "Pauper" ]
 colors = ["Black","Blue","Green","Red","White"]
@@ -179,35 +178,4 @@ def Rules():
     print("1. The randomizer will run and select either a color combo,\n    a mechanic type,\n    or creature type\n    and you must build a deck around what is chosen")
     print("2. Deck choices will be made without the others knowledge to prevent building against the other person\n")
 
-
 Main()
-
-sets = mtgsdk.Set.all()
-#cards = mtgsdk.Card.where(set='thb').all()
-
-print(' ')
-
-#cards = mtgsdk.Card.where(set=thb).all()
-#
-##sets.append(mtgsdk.Set.find('xln'))
-##types = mtgsdk.Type.all()
-#subtypes = mtgsdk.Subtype.all()
-#supertypes = mtgsdk.Supertype.all()
-#
-#llen = random.randint(1,10)
-#
-#for i in range(0,llen):
-#
-#    rint = random.randint(1,len(cards))
-#
-#    print("Card #: " + str(i+1))
-#    print("Name: " + cards[rint].name)
-#    print("CMC: " + str(cards[rint].cmc))
-#    print("ManaCost" + cards[rint].mana_cost)
-#    color_str = ""
-#    for color in cards[rint].colors:
-#        color_str += color + " "
-#    print("Colors: " + color_str)
-#    print("Type: " + cards[rint].type)
-#    print("Text: " + cards[rint].text)
-#    print("")
