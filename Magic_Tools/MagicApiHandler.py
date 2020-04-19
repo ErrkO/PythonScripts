@@ -98,6 +98,8 @@ def quickSort(arr,low,high):
         quickSort(arr, low, pi-1)
         quickSort(arr, pi+1, high)
 
+#card = MTGCard.where(legality='Legal').where(format='Historic').all()
+
 #card = MTGCard.find(473159)
 
 #print('')

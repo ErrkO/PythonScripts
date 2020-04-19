@@ -1,6 +1,6 @@
 class Card:
     cardID = 0
-    cmc = 0
+    cmc = 0.0
     colors = []
     ImageURL = ''
     mana_cost = ''
@@ -49,12 +49,12 @@ class Card:
 
     def Parameterize(self,skipID = False):
         if skipID == True:
-            return ([self.cmc,self.colors,self.ImageURL,self.mana_cost
+            return ([self.cmc,self.ImageURL,self.mana_cost
                     ,self.name,self.number,self.power,self.rarity,self.set
-                    ,self.subtypes,self.text,self.toughness,self.type,])
-        return ([self.cardID,self.cmc,self.colors,self.ImageURL,self.mana_cost
+                    ,self.text,self.toughness,])
+        return ([self.cmc,self.ImageURL,self.mana_cost
                     ,self.name,self.number,self.power,self.rarity,self.set
-                    ,self.subtypes,self.text,self.toughness,self.type,])
+                    ,self.text,self.toughness,])
 
     def __str__(self):
         return self.name + ' (' + self.setCode + ') ' + self.number
@@ -210,8 +210,8 @@ class Set:
             self.SetCode = argv[0].SetCode
             self.SetName = argv[0].SetName
         else:
-            self.SetCode = argv[1]
-            self.SetName = argv[2]
+            self.SetCode = argv[0]
+            self.SetName = argv[1]
 
     def Parameterize(self,skipID = False):
         return ([self.SetCode,self.SetName,])

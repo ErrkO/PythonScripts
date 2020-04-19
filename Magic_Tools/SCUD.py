@@ -5,14 +5,36 @@ import os
 import Objects as Obj
 import MagicApiHandler as Handler
 
-def BuildBaseDB(cursor):
-    sets = Handler.GetAllSets()
-    types = Handler.GetAllTypes()
-    subtypes = Handler.GetAllSubtypes()
-    supertypes = Handler.GetAllSupertypes()
+#Standard2019 = ['xln','rix','dom','m19','grn','rna','war','m20']
+#Standard2020 = ['grn','rna','war','m20','eld','thb','iko']
+SetsInArena = ['XLN','RIX','DOM','M19','GRN','RNA','WAR','M20','ELD','THB','IKO']
 
+def BuildBaseDB(connection,cursor):
+
+    print('Saving all the Sets')
+    sets = Handler.GetAllSets()
     SaveSets(cursor,sets)
-    
+
+    print('\nSaving all the Types')
+    types = Handler.GetAllTypes()
+    SaveTypes(cursor,types)
+
+    print('\nSaving all the Subtypes')
+    subtypes = Handler.GetAllSubtypes()
+    SaveSubtypes(cursor,subtypes)
+
+    print('\nSaving all the SuperTypes')
+    supertypes = Handler.GetAllSupertypes()
+    SaveSupertypes(cursor,supertypes)
+
+    for seta in sets:
+        for setb in SetsInArena:
+            if seta.SetCode == setb:
+                print('Saving set: ' + seta.SetName)
+                cards = Handler.GetAllCardsInSet(seta.SetCode)
+                SaveCards(cursor,cards)
+
+    connection.commit()
 
 def PrintConInfo(connection):
     if connection.is_connected():
@@ -67,28 +89,27 @@ def SaveCards(cursor,cards):
 
 def SaveCard(cursor,card):
     query = ("""INSERT INTO Cards(
-              CardID
-	          ,CMC
+	           CMC
+              ,ImageURL
 	          ,ManaCost
 	          ,NAME
+              ,Number
 	          ,Power
 	          ,Rarity
-	          ,SetID
+	          ,SetCode
 	          ,Text
 	          ,Toughness
             )
             VALUES
-            (%s,%s,%s,%s,%s,%s,%s,%s,%s)""")
+            (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""")
 
-    record = cursor.execute(query,card.Parameterize())
-
-    return record
+    cursor.execute(query,card.Parameterize(True))
 
 def SaveSets(cursor,sets):
     for sett in sets:
-        SaveSet(cursor,sett)
+        InsertSet(cursor,sett)
 
-def SaveSet(cursor,sett):
+def InsertSet(cursor,sett):
     query = ("""INSERT INTO Sets(
                      SetCode
                     ,SetName)
@@ -99,11 +120,50 @@ def SaveSet(cursor,sett):
 
     return record
 
-def SaveTypes(cursor,tableLst):
-    return LoadAllFromTable(cursor,tableLst[6])
+def SaveTypes(cursor,types):
+    for typee in types:
+        InsertType(cursor,typee)
 
-def SaveSubtypes(cursor,tableLst):
-    return LoadAllFromTable(cursor,tableLst[5])
+def InsertType(cursor,typee):
+    query = ("""INSERT INTO Types(
+                     TypeDesc
+                    )
+                Values
+                    (%s)""")
+    
+    record = cursor.execute(query,typee.Parameterize(True))
+
+    return record
+
+def SaveSubtypes(cursor,subtypes):
+    for sub in subtypes:
+        InsertSubtype(cursor,sub)
+
+def InsertSubtype(cursor,sub):
+    query = ("""INSERT INTO Subtypes(
+                     SubtypeDesc
+                    )
+                Values
+                    (%s)""")
+    
+    record = cursor.execute(query,sub.Parameterize(True))
+
+    return record
+
+def SaveSupertypes(cursor,supertypes):
+    for sup in supertypes:
+        InsertSupertype(cursor,sup)
+
+def InsertSupertype(cursor,sup):
+    query = ("""INSERT INTO Supertypes(
+                     SupertypeDesc
+                    )
+                Values
+                    (%s)""")
+    
+    record = cursor.execute(query,sup.Parameterize(True))
+
+    return record
 
 def SaveCardTypes(cursor,cardID,tableLst):
     return LoadAllFromTable(cursor,tableLst[2])
@@ -152,10 +212,7 @@ def Main():
         if cursor != None:
             cursor = connection.cursor()
 
-            sql_statement = """SELECT * FROM Formats"""
-            cursor.execute(sql_statement)
-            formats = cursor.fetchone()
-            print('')
+            BuildBaseDB(connection,cursor)
             
     except Error as e:
         print("Error", e)
