@@ -128,16 +128,6 @@ INSERT INTO Colors(
 	 Color
 	,ColorSymbol
 ) VALUES
-	 ('Black','B')
-	,('Blue','U')
-	,('Green','G')
-	,('Red','R')
-	,('White','W');
-
-INSERT INTO ColorIdentity(
-	CIdentityName
-	,CIdentitySymbol
-) VALUES
 	-- Mono Colors
 	 ('Mono Black','B')
 	,('Mono Blue','U')
@@ -180,6 +170,8 @@ INSERT INTO ColorIdentity(
 	,('Rainbow','WUBRG')
 	,('Diamond','D');
 
+
+
 INSERT INTO LegalTypes (
 	LTypeDesc
 ) VALUES
@@ -201,3 +193,38 @@ INSERT INTO Formats (
 	,('Brawl')
 	,('Future')
 	,('Historic');
+
+INSERT INTO Types (
+	TypeDesc
+) VALUES
+	 ('Artifact')
+	,('Autobot')
+	,('Character')
+	,('Conspiracy')
+	,('Creature')
+	,('Elemental')
+	,('Enchantment')
+	,('Hero')
+	,('Instant')
+	,('Land')
+	,('Phenomenon')
+	,('Plane')
+	,('Planeswalker')
+	,('Scheme')
+	,('Sorcery')
+	,('Specter')
+	,('Summon')
+	,('Tribal')
+	,('Vangaurd')
+	,('Wolf')
+	,('Youll');
+
+INSERT INTO Supertypes (
+	SupertypeDesc
+) VALUES
+	 ('Basic')
+	,('Host')
+	,('Legendary')
+	,('Ongoing')
+	,('Snow')
+	,('World');
