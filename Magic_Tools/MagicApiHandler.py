@@ -5,7 +5,7 @@ from mtgsdk import Supertype as MTGSupertype
 from mtgsdk import Subtype as MTGSubtype
 import Objects
 
-Rarities = ['Common','Uncommon','Rare','Mythic Rare']
+Rarities = ['Common','Uncommon','Rare','Mythic']
 
 def GetAllSets():
     mtgsets = MTGSet.all()
@@ -100,31 +100,7 @@ def quickSort(arr,low,high):
 
 #card = MTGCard.where(legality='Legal').where(format='Historic').all()
 
-#card = MTGCard.find(473159)
+#card = MTGCard.find(479688)
+card = MTGCard.where(name='Mythos of Brokkos').all()
 
-#print('')
-
-#cards = mtgsdk.Card.where(set=thb).all()
-#
-##sets.append(mtgsdk.Set.find('xln'))
-##types = mtgsdk.Type.all()
-#subtypes = mtgsdk.Subtype.all()
-#supertypes = mtgsdk.Supertype.all()
-#
-#llen = random.randint(1,10)
-#
-#for i in range(0,llen):
-#
-#    rint = random.randint(1,len(cards))
-#
-#    print("Card #: " + str(i+1))
-#    print("Name: " + cards[rint].name)
-#    print("CMC: " + str(cards[rint].cmc))
-#    print("ManaCost" + cards[rint].mana_cost)
-#    color_str = ""
-#    for color in cards[rint].colors:
-#        color_str += color + " "
-#    print("Colors: " + color_str)
-#    print("Type: " + cards[rint].type)
-#    print("Text: " + cards[rint].text)
-#    print("")
+print('')
