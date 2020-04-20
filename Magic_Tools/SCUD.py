@@ -11,7 +11,7 @@ SetsInArena = ['XLN','RIX','DOM','M19','GRN','RNA','WAR','M20','ELD','THB','IKO'
 
 def BuildBaseDB(connection,cursor):
 
-    print('Saving all the Sets')
+    print('\nSaving all the Sets')
     sets = Handler.GetAllSets()
     SaveSets(cursor,sets)
 
@@ -23,7 +23,7 @@ def BuildBaseDB(connection,cursor):
     subtypes = Handler.GetAllSubtypes()
     SaveSubtypes(cursor,subtypes)
 
-    print('\nSaving all the SuperTypes')
+    print('\nSaving all the SuperTypes\n')
     supertypes = Handler.GetAllSupertypes()
     SaveSupertypes(cursor,supertypes)
 
