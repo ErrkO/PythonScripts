@@ -160,11 +160,11 @@ INSERT INTO Colors(
 	,('Temur','GRU')
 
 	-- Quad Colors
-	,('Non-White','UBRG')
-	,('Non-Blue','BRGW')
-	,('Non-Black','RGWB')
-	,('Non-Red','GWUB')
-	,('Non-Green','WUBR')
+	,('Choas','UBRG')
+	,('Aggression','BRGW')
+	,('Altruism','RGWB')
+	,('Growth','GWUB')
+	,('Artifice','WUBR')
 
 	-- Other
 	,('Rainbow','WUBRG')
@@ -176,6 +176,7 @@ INSERT INTO LegalTypes (
 	LTypeDesc
 ) VALUES
 	 ('Legal')
+	,('not_legal')
 	,('Banned')
 	,('Restricted');
 
@@ -192,7 +193,9 @@ INSERT INTO Formats (
 	,('Pauper')
 	,('Brawl')
 	,('Future')
-	,('Historic');
+	,('Historic')
+	,('Oldschool')
+	,('Penny');
 
 INSERT INTO Types (
 	TypeDesc

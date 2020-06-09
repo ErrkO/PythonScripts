@@ -3,6 +3,7 @@ class Card:
     cmc = 0.0
     colors = []
     ImageURL = ''
+    legalities = []
     mana_cost = ''
     name = ''
     number = ''
@@ -21,6 +22,7 @@ class Card:
             self.cmc = card.cmc
             self.colors = card.colors
             self.ImageURL = card.ImageURL
+            self.legalities = card.legalities
             self.mana_cost = card.mana_cost
             self.name = card.name
             self.number = card.number
@@ -36,16 +38,17 @@ class Card:
             self.cmc = argv[1]
             self.colors = argv[2]
             self.ImageURL = argv[3]
-            self.mana_cost = argv[4]
-            self.name = argv[5]
-            self.number = argv[6]
-            self.power = argv[7]
-            self.rarity = argv[8]
-            self.set = argv[9]
-            self.subtypes = argv[10]
-            self.text = argv[11]
-            self.toughness = argv[12]
-            self.type = argv[13]
+            self.legalities = argv[4]
+            self.mana_cost = argv[5]
+            self.name = argv[6]
+            self.number = argv[7]
+            self.power = argv[8]
+            self.rarity = argv[9]
+            self.set = argv[10]
+            self.subtypes = argv[11]
+            self.text = argv[12]
+            self.toughness = argv[13]
+            self.type = argv[14]
 
     def Parameterize(self,skipID = False):
         if skipID == True:
