@@ -1,5 +1,39 @@
 # MTG Arena Decks
 
+- Brawl - Kethis
+```
+Commander
+1 Kethis, the Hidden Hand (M20) 211
+
+Deck
+1 Daxos, Blessed by the Sun (THB) 9
+8 Swamp (UND) 92
+1 Heliod, Sun-Crowned (THB) 18
+1 Sephara, Sky's Blade (M20) 36
+1 The Wanderer (WAR) 37
+1 Oath of Kaya (WAR) 209
+6 Plains (UND) 88
+1 Garruk, Cursed Huntsman (ELD) 191
+10 Forest (UND) 96
+1 Vraska, Golgari Queen (GRN) 213
+1 Polukranos, Unchained (THB) 224
+1 Izoni, Thousand-Eyed (GRN) 180
+1 Ajani, the Greathearted (WAR) 184
+1 Rankle, Master of Pranks (ELD) 101
+1 Syr Konrad, the Grim (ELD) 107
+1 Vilis, Broker of Blood (M20) 122
+1 Liliana, Dreadhorde General (WAR) 97
+1 Syr Faren, the Hengehammer (ELD) 177
+1 Mowu, Loyal Companion (WAR) 167
+1 Questing Beast (ELD) 171
+1 Renata, Called to the Hunt (THB) 196
+1 Awakening of Vitu-Ghazi (WAR) 152
+1 The Great Henge (ELD) 161
+1 Nissa, Who Shakes the World (WAR) 169
+1 Gargos, Vicious Watcher (M20) 172
+
+```
+
 - FB - Artifact 2
 ```
 Commander
@@ -65,57 +99,6 @@ Deck
 1 Treasure Map (XLN) 250
 1 Dowsing Dagger (XLN) 235
 1 Azor's Gateway (RIX) 176
-```
-
-- STD - Mono Red
-```
-Deck
-4 Scorch Spitter (M20) 159
-12 Mountain (UND) 94
-4 Shock (M19) 156
-4 Cavalcade of Calamity (RNA) 95
-4 Chandra's Triumph (WAR) 121
-4 Chandra's Spitfire (M20) 132
-4 Grim Initiate (WAR) 130
-4 Raging Goblin (ANA) 43
-4 Light Up the Stage (RNA) 107
-4 Skewer the Critics (RNA) 115
-12 Mountain (THB) 253
-
-```
-
-- Brawl - Kethis
-```
-Commander
-1 Kethis, the Hidden Hand (M20) 211
-
-Deck
-1 Daxos, Blessed by the Sun (THB) 9
-8 Swamp (UND) 92
-1 Heliod, Sun-Crowned (THB) 18
-1 Sephara, Sky's Blade (M20) 36
-1 The Wanderer (WAR) 37
-1 Oath of Kaya (WAR) 209
-6 Plains (UND) 88
-1 Garruk, Cursed Huntsman (ELD) 191
-10 Forest (UND) 96
-1 Vraska, Golgari Queen (GRN) 213
-1 Polukranos, Unchained (THB) 224
-1 Izoni, Thousand-Eyed (GRN) 180
-1 Ajani, the Greathearted (WAR) 184
-1 Rankle, Master of Pranks (ELD) 101
-1 Syr Konrad, the Grim (ELD) 107
-1 Vilis, Broker of Blood (M20) 122
-1 Liliana, Dreadhorde General (WAR) 97
-1 Syr Faren, the Hengehammer (ELD) 177
-1 Mowu, Loyal Companion (WAR) 167
-1 Questing Beast (ELD) 171
-1 Renata, Called to the Hunt (THB) 196
-1 Awakening of Vitu-Ghazi (WAR) 152
-1 The Great Henge (ELD) 161
-1 Nissa, Who Shakes the World (WAR) 169
-1 Gargos, Vicious Watcher (M20) 172
-
 ```
 
 - Hist - Demon Contract
@@ -193,6 +176,23 @@ Deck
 1 Verdant Force (DAR) 187
 1 Thorn Mammoth (ELD) 323
 1 End-Raze Forerunners (RNA) 124
+
+```
+
+- STD - Mono Red
+```
+Deck
+4 Scorch Spitter (M20) 159
+12 Mountain (UND) 94
+4 Shock (M19) 156
+4 Cavalcade of Calamity (RNA) 95
+4 Chandra's Triumph (WAR) 121
+4 Chandra's Spitfire (M20) 132
+4 Grim Initiate (WAR) 130
+4 Raging Goblin (ANA) 43
+4 Light Up the Stage (RNA) 107
+4 Skewer the Critics (RNA) 115
+12 Mountain (THB) 253
 
 ```
 
@@ -885,18 +885,148 @@ Deck
 
 ```
 
-- 
+- FB - Ang, Dem, & Darg, Oh My
 ```
+Commander
+1 Kaalia, Zenith Seeker (M20) 210
+
+Deck
+1 Embodiment of Agonies (M20) 98
+2 Mountain (UND) 94
+1 Spawn of Mayhem (RNA) 85
+1 Demonlord Belzenlok (DAR) 86
+1 Liliana's Contract (M19) 107
+1 Vilis, Broker of Blood (M20) 122
+1 Rakdos, the Showstopper (RNA) 199
+3 Swamp (UND) 92
+1 Rapacious Dragon (M20) 153
+1 Lathliss, Dragon Queen (M19) 149
+1 Drakuseth, Maw of Flames (M20) 136
+1 Sephara, Sky's Blade (M20) 36
+2 Plains (UND) 88
+1 Platinum Angel (M10) 218
+1 Seraph of the Scales (RNA) 205
+1 Serra's Guardian (M20) 310
+1 Resplendent Angel (M19) 34
+1 Angel of Vitality (M20) 4
+1 Dragon Egg (M19) 138
+1 Nightmare Shepherd (THB) 108
+1 Demon of Catastrophes (M19) 91
+1 Command Tower (ELD) 333
+1 Evolving Wilds (M20) 246
+1 Fabled Passage (ELD) 244
+1 Mind Stone (WTH) 153
+1 Nyx Lotus (THB) 235
+1 Gilded Lotus (DAR) 215
+1 Scheming Symmetry (M20) 113
+1 Mausoleum Secrets (GRN) 75
+1 Wishclaw Talisman (ELD) 110
+1 Final Parting (DAR) 93
+1 Gravebreaker Lamia (THB) 98
+1 Witch's Cottage (ELD) 249
+1 Aid the Fallen (WAR) 76
+1 Omen of the Dead (THB) 110
+1 Blood for Bones (M20) 89
+1 Pacifism (M20) 32
+1 Seal Away (DAR) 31
+1 Drag to the Underworld (THB) 89
+1 Shock (M20) 160
+1 Thrill of Possibility (THB) 159
+1 Lava Coil (GRN) 108
+2 Plains (THB) 250
+4 Swamp (THB) 252
+3 Mountain (THB) 253
+1 Dragonskull Summit (XLN) 252
+1 Blood Crypt (RNA) 245
+1 Sacred Foundry (GRN) 254
+1 Godless Shrine (RNA) 248
 
 ```
 
-- 
+- Brawl - Ang, Dem, & Darg, Oh My
 ```
+Commander
+1 Kaalia, Zenith Seeker (M20) 210
+
+Deck
+1 Embodiment of Agonies (M20) 98
+2 Mountain (UND) 94
+1 Spawn of Mayhem (RNA) 85
+1 Rafter Demon (RNA) 196
+1 Serra Angel (DAR) 33
+1 Vilis, Broker of Blood (M20) 122
+1 Rakdos, the Showstopper (RNA) 199
+3 Swamp (UND) 92
+1 Rapacious Dragon (M20) 153
+1 Doom Whisperer (GRN) 69
+1 Drakuseth, Maw of Flames (M20) 136
+1 Sephara, Sky's Blade (M20) 36
+2 Plains (UND) 88
+1 Shivan Dragon (M20) 335
+1 Seraph of the Scales (RNA) 205
+1 Serra's Guardian (M20) 310
+1 Chromatic Lantern (GRN) 233
+1 Angel of Vitality (M20) 4
+1 Traveler's Amulet (THB) 240
+1 Nightmare Shepherd (THB) 108
+1 Arcane Signet (ELD) 331
+1 Command Tower (ELD) 333
+1 Evolving Wilds (M20) 246
+1 Fabled Passage (ELD) 244
+1 Murder (M20) 109
+1 Nyx Lotus (THB) 235
+1 Dawning Angel (M20) 11
+1 Scheming Symmetry (M20) 113
+1 Mausoleum Secrets (GRN) 75
+1 Wishclaw Talisman (ELD) 110
+1 Aurelia, Exemplar of Justice (GRN) 153
+1 Gravebreaker Lamia (THB) 98
+1 Witch's Cottage (ELD) 249
+1 Aid the Fallen (WAR) 76
+1 Omen of the Dead (THB) 110
+1 Blood for Bones (M20) 89
+1 Pacifism (M20) 32
+1 Luminous Bonds (RIX) 12
+1 Drag to the Underworld (THB) 89
+1 Shock (M20) 160
+1 Thrill of Possibility (THB) 159
+1 Lava Coil (GRN) 108
+2 Plains (THB) 250
+4 Swamp (THB) 252
+3 Mountain (THB) 253
+1 Volcanic Dragon (M19) 167
+1 Blood Crypt (RNA) 245
+1 Sacred Foundry (GRN) 254
+1 Godless Shrine (RNA) 248
 
 ```
 
-- 
+- Hist - Prismatic
 ```
+Deck
+4 Gilded Goose (ELD) 160
+4 Gift of Paradise (M20) 173
+1 Gilded Lotus (DAR) 215
+4 Paradise Druid (WAR) 171
+3 Dryad of the Ilysian Grove (THB) 169
+2 Sphinx of the Guildpact (RNA) 241
+1 Jodah, Archmage Eternal (DAR) 198
+2 Niv-Mizzet Reborn (WAR) 208
+1 Nyxbloom Ancient (THB) 190
+2 Nyx Lotus (THB) 235
+1 Zetalpa, Primal Dawn (RIX) 30
+2 Nezahal, Primal Tide (RIX) 45
+1 Omniscience (M19) 65
+2 The Magic Mirror (ELD) 51
+2 Vilis, Broker of Blood (M20) 122
+2 Drakuseth, Maw of Flames (M20) 136
+1 Ghalta, Primal Hunger (RIX) 130
+1 Arboretum Elemental (GRN) 122
+2 Plains (THB) 250
+6 Island (THB) 251
+3 Swamp (THB) 252
+4 Mountain (THB) 253
+9 Forest (THB) 254
 
 ```
 

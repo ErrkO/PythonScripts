@@ -5,6 +5,7 @@ class Card:
     ImageURL = ''
     legalities = []
     mana_cost = ''
+    mechanics = []
     name = ''
     number = ''
     power = ''
@@ -24,6 +25,7 @@ class Card:
             self.ImageURL = card.ImageURL
             self.legalities = card.legalities
             self.mana_cost = card.mana_cost
+            self.mechanics - card.mechanics
             self.name = card.name
             self.number = card.number
             self.power = card.power
@@ -40,15 +42,16 @@ class Card:
             self.ImageURL = argv[3]
             self.legalities = argv[4]
             self.mana_cost = argv[5]
-            self.name = argv[6]
-            self.number = argv[7]
-            self.power = argv[8]
-            self.rarity = argv[9]
-            self.set = argv[10]
-            self.subtypes = argv[11]
-            self.text = argv[12]
-            self.toughness = argv[13]
-            self.type = argv[14]
+            self.mechanics = argv[6]
+            self.name = argv[7]
+            self.number = argv[8]
+            self.power = argv[9]
+            self.rarity = argv[10]
+            self.set = argv[11]
+            self.subtypes = argv[12]
+            self.text = argv[13]
+            self.toughness = argv[14]
+            self.type = argv[15]
 
     def Parameterize(self,skipID = False):
         if skipID == True:

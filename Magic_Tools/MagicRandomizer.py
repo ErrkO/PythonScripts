@@ -1,24 +1,43 @@
 import random
+import ScryfallAPIHandler as api
+import os
+import json
 
-formats = [ "Standard", "Historic", "Commander", "Historic Commander", "Pauper" ]
+THIS_FOLDER = os.path.dirname(os.path.abspath(__file__))
+mechanics_path = os.path.join(THIS_FOLDER, 'Keywords.json')
+
+formats = [ "Standard", "Historic", "Brawl", "Historic Brawl", "Pauper" ]
 colors = ["Black","Blue","Green","Red","White"]
-mechanics = ["Spells","Amass","Hexproof","Mill"
-            ,"Self-Mill","Deathtouch","Lifelink"
-            ,"*Strike","Instant/Flash/Haste"
-            ,"Flying","Trample","Vigilance"
-            ,"Kicker","Convoke","Menace"
-            ,"Afterlife","Ascend","Proliferate"
-            ,"Mentor","Riot","Spectacle"]
-creature = ["Sphinx","Pirate","Dragon","Merfolk"
-            ,"Human","Zombie","Vampire","Spirit"
-            ,"Elemental","Dinosaur","Beast","Angel"
-            ,"Knight","Cleric","Wizard","Shaman"
-            ,"Demonic","Horror","Insect","Orc"
-            ,"Assassin","Fungus","Artifact"
-            ,"Goblin","Wall","Elf"]
+# mechanics = ["Spells","Amass","Hexproof","Mill"
+#             ,"Self-Mill","Deathtouch","Lifelink"
+#             ,"*Strike","Instant/Flash/Haste"
+#             ,"Flying","Trample","Vigilance"
+#             ,"Kicker","Convoke","Menace"
+#             ,"Afterlife","Ascend","Proliferate"
+#             ,"Mentor","Riot","Spectacle"]
+# creature = ["Sphinx","Pirate","Dragon","Merfolk"
+#             ,"Human","Zombie","Vampire","Spirit"
+#             ,"Elemental","Dinosaur","Beast","Angel"
+#             ,"Knight","Cleric","Wizard","Shaman"
+#             ,"Demonic","Horror","Insect","Orc"
+#             ,"Assassin","Fungus","Artifact"
+#             ,"Goblin","Wall","Elf"]
+
+creature = api.GetAllSubtypes(False)
+mechanics = []
 
 Standard2019 = 'xln,rix,dom,m19,grn,rna,war,m20'
 Standard2020 = 'grn,rna,war,m20,eld,thb,iko'
+
+def GetMechanics():
+    with open(mechanics_path) as json_file:
+        Data = json.load(json_file)
+    
+    for pair in Data["data"]:
+        if pair["is_in"] == 1:
+            mechanics.append(pair["name"])
+
+    return mechanics
 
 def RandomFormat():
     index = random.randint(0,len(formats)-1)
@@ -29,6 +48,7 @@ def RandomColor():
     return colors[index]
 
 def RandomMechanic():
+    mechanics = GetMechanics()
     index = random.randint(0,len(mechanics)-1)
     return mechanics[index]
 
@@ -94,18 +114,8 @@ def GetColors():
 
             return RandomColor()
 
-def Main():
-
+def RollForDeck():
     choice = ColorOrOther()
-    format = RandomFormat()
-
-    Rules()
-
-    print("The format you will be playing is: " + format)
-
-    #################################
-    #    Start of Player 2 Block    #
-    #################################
 
     print("You will be playing deck type: " + choice)
 
@@ -126,50 +136,50 @@ def Main():
 
     elif choice == "Mechanic":
 
-        choiceList = RandomMechanic()
+        mechanic = RandomMechanic()
 
-        print("    " + choiceList)
+        print("    " + mechanic)
 
     elif choice == "Creature":
 
-        choiceList = RandomCreautre()
+        creature = RandomCreautre()
 
-        print("    " + choiceList)
+        print("    " + creature)
+
+def CheckIfInArena():
+
+    isValidM = False
+
+    while not isValidM:
+    
+        mechanic = RandomMechanic()
+
+        isValid = input('Is this mechanic Valid? (y/n) ')
+        
+        if isValid != "Y" or isValid != "y":
+            pass
+
+
+    print('')
+
+def Main():
+    format = RandomFormat()
+
+    Rules()
+
+    print("The format you will be playing is: " + format)
+
+    #################################
+    #    Start of Player 1 Block    #
+    #################################
+
+    RollForDeck()
 
     #################################
     #    Start of Player 2 Block    #
     #################################
     
-    choice = ColorOrOther()
-
-    print("Your Opponent will be playing deck type: " + choice)
-
-    print("Requirements: ")
-
-    if choice == "Color":
-        
-        choiceList = GetColors()
-
-        if type(choiceList) is list:
-
-            for color in choiceList:
-                print("    " + color)
-
-        else:
-
-            print("    " + choiceList)
-
-    elif choice == "Mechanic":
-
-        choiceList = RandomMechanic()
-
-        print("    " + choiceList)
-
-    elif choice == "Creature":
-
-        choiceList = RandomCreautre()
-
-        print("    " + choiceList)
+    RollForDeck()
 
     input("Press any key to continue...")
 
@@ -177,5 +187,7 @@ def Rules():
     print("The rules are simple")
     print("1. The randomizer will run and select either a color combo,\n    a mechanic type,\n    or creature type\n    and you must build a deck around what is chosen")
     print("2. Deck choices will be made without the others knowledge to prevent building against the other person\n")
+
+#CheckIfInArena('')
 
 Main()
